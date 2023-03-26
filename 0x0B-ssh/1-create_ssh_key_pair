@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# set the path to save the private key
+KEY_PATH=~/.ssh/school
+
+# generate the RSA key pair with a 4096-bit key size and passphrase
+ssh-keygen -t rsa -b 4096 -f $KEY_PATH -N betty
