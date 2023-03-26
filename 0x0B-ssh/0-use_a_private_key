@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+#set hostname or ip address
+HOST = 105733-web-01
+
+#set path to private key
+KEY = ~/.ssh/school
+
+#use ssh to connect to the remote server with the specified private key and user
+ssh -i $KEY ubuntu@$HOST
