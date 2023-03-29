@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#Update package lists and install Nginx
+
+apt-get update
+apt-get install -y nginx
+
+#Configure Nginx
+sudo echo "server {
+    listen 80;
+    root /var/www/html;
+    index index.html;
+    location / {
+        try_files \$uri \$uri/ =404;
+        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}" > /etc/nginx/sites-available/default
+
+#Restart Nginx
+sudo /etc/init.d/nginx restart
+
+#Create HTML file with Hello World
+echo "<html><body>Hello World!</body></html>" | sudo tee /var/www/html/index.html
