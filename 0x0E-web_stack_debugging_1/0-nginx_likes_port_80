@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# change nginx server to listen on port 80 
+# Start Nginx service
+
+systemctl start nginx
+
+# Add port 80 to Nginx config
+
+echo "listen 80;" >> /etc/nginx/sites-enabled/default
+
+# Reload Nginx service
+
+systemctl reload nginx
