@@ -1,0 +1,1 @@
+This article focuses on the set of activities that take place when a person types something to search on their web browser
