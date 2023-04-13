@@ -1,0 +1,25 @@
+When you type "https://www.google.com" in your browser and press Enter, a series of complex processes occur behind the scenes to deliver the web page to your browser. In this blog post, we'll explore each of these steps in detail.
+
+DNS request
+The first step is the Domain Name System (DNS) request. When you type the URL in your browser, it sends a request to your ISP's DNS server to translate the human-readable domain name (www.google.com) into an IP address (e.g. 216.58.194.174). This step is necessary because computers communicate using IP addresses, not domain names.
+
+TCP/IP
+Once the browser knows the IP address of the server, it establishes a connection using the Transmission Control Protocol (TCP). TCP ensures that data is transferred reliably and in order between the client (your browser) and the server (Google's web server).
+
+Firewall
+Before the connection is established, the request passes through the firewall, which checks whether the request is allowed or not. The firewall is a security measure that prevents unauthorized access to the server.It monitors and controls incoming and outgoing network traffic based on predetermined security rules. 
+
+HTTPS/SSL
+If the request is allowed, the browser and the server initiate a secure connection using HTTPS (HyperText Transfer Protocol Secure) with SSL (Secure Sockets Layer) encryption. This ensures that the data exchanged between the client and the server is encrypted and secure.
+
+Load-balancer
+When the request reaches Google's server, it passes through a load balancer. A load balancer distributes the incoming traffic evenly across multiple web servers, ensuring that no single server is overloaded.
+
+Web server
+The request is then passed to one of Google's many web servers, which serves the web page to the client. The web server generates an HTML document containing the search results and sends it back to the browser.
+
+Application server
+If the web page requires dynamic content (such as search results), the request is then passed to an application server. The application server processes the request, retrieves data from a database, and generates a response that is sent back to the web server.
+
+Database
+The final step is the database. If the request requires data from a database, the application server retrieves it from the database server. The database server stores all of the data required for Google's services, such as user data and search results.
