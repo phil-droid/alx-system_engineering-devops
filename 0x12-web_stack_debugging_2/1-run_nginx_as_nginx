@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Create the nginx user
+useradd -r -s /usr/sbin/nologin nginx
+
+# Change the ownership of the log and cache directories
+chown -R nginx:nginx /var/log/nginx /var/cache/nginx
+
+# Edit the nginx.conf file to run Nginx as the nginx user
+sed -i 's/user www-data/user nginx/' /etc/nginx/nginx.conf
+
+# Edit the default site configuration file to listen on all active IPs on port 8080
+sed -i '/listen 80 default_server/a listen 8080 default_server;\nlisten [::]:8080 default_server;' /etc/nginx/sites-enabled/default
+
+# Restart Nginx
+service nginx restart
